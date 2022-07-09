@@ -29,21 +29,10 @@
   },
   "manifest": {
     "host_permissions": [
-      "*://*.qq.com/"
+      "https://*/*"
     ],
     "permissions": [
-      "declarativeNetRequest",
-      "webRequest",
-      "webRequestBlocking",
-      "notifications",
-      "background",
-      "tabs",
-      "unlimitedStorage",
-      "storage",
-      "contextMenus",
-      "webNavigation",
-      "downloads",
-      "cookies"
+      "tabs"
     ]
   }
 }
