@@ -1,9 +1,8 @@
-/** @type {import('tailwindcss').Config} */
+/** @type {import('tailwindcss/tailwind-config').TailwindConfig} */
 module.exports = {
-  purge: ["./src/**/*.tsx", "./src/**/*.ts"],
-  content: [],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-};
+  mode: "jit",
+  darkMode: "class",
+  content: ["./**/*.{ts,tsx}"],
+  theme: {},
+  variants: {}
+}
