@@ -1,13 +1,19 @@
 import { Button, Col, Form, Input, Row, Typography } from "antd"
 import { useState } from "react"
 
-import { parseTikTok } from "../../utils"
+import {
+  downloadAudioResource,
+  downloadVideoResource,
+  parseTikTok
+} from "../../utils"
 import { RoundLayout } from "./RoundLayout"
 
 const { useForm } = Form
 
 export const BusinessForm = () => {
   const [submitLoading, setSubmitLoading] = useState(false)
+  const [videoLoading, setVideoLoading] = useState(false)
+  const [audioLoading, setAudioLoading] = useState(false)
   const [videoParams, setVideoParams] = useState({}) as any
 
   const [form] = useForm()
@@ -26,25 +32,38 @@ export const BusinessForm = () => {
     setSubmitLoading(false)
   }
 
-  const downloadResource = (url: string) => {
-    const eleLink = document.createElement("a")
-    eleLink.style.display = "none"
-    eleLink.href = url
-    document.body.appendChild(eleLink)
-    eleLink.click()
-    document.body.removeChild(eleLink)
+  const downloadResource = async (url, type) => {
+    if (type === "video") {
+      setVideoLoading(true)
+      try {
+        await downloadVideoResource(url)
+      } catch (error) {
+        console.error(error)
+      }
+      setVideoLoading(false)
+    }
+
+    if (type === "audio") {
+      setAudioLoading(true)
+      try {
+        await downloadAudioResource(url)
+      } catch (error) {
+        console.error(error)
+      }
+      setAudioLoading(false)
+    }
   }
 
   return (
     <RoundLayout title="TikTok视频解析">
       <Form form={form} onFinish={onFormFinish} layout="vertical" size="middle">
         <Row>
-          <Col span={12}>
+          <Col span={18}>
             <Form.Item
               name="link"
               label="链接"
               rules={[{ required: true, message: "请输入链接" }]}>
-              <Input placeholder="请输入链接" />
+              <Input placeholder="请输入链接" allowClear />
             </Form.Item>
           </Col>
         </Row>
@@ -56,7 +75,7 @@ export const BusinessForm = () => {
       </Form>
       <Row>
         {videoParams.nwmVideoUrl && (
-          <Col span={12}>
+          <Col span={18}>
             <Typography.Title level={5}>
               {videoParams.videoTitle}
             </Typography.Title>
@@ -73,20 +92,22 @@ export const BusinessForm = () => {
               </Typography.Text>
             </div>
             <div className="my-3">
-              <video className="w-full max-h-80" controls width="250">
+              <video autoPlay className="w-full max-h-80" controls width="250">
                 <source src={videoParams.nwmVideoUrl} type="video/mp4" />
                 Sorry, your browser doesn't support embedded videos.
               </video>
             </div>
             <Button
               type="primary"
-              onClick={() => downloadResource(videoParams.nwmVideoUrl)}>
+              onClick={() => downloadResource(videoParams.nwmVideoUrl, "video")}
+              loading={videoLoading}>
               下载视频
             </Button>
             <Button
               className="ml-3"
               type="primary"
-              onClick={() => downloadResource(videoParams.musicUrl)}>
+              onClick={() => downloadResource(videoParams.musicUrl, "audio")}
+              loading={audioLoading}>
               下载音频
             </Button>
           </Col>

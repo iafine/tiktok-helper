@@ -119,3 +119,33 @@ export const parseTikTok = async (url: string) => {
     topics
   }
 }
+
+// 下载视频资源
+export const downloadVideoResource = async (url) => {
+  const res: any = await axios.get(url, { responseType: "blob" })
+  const type = res.headers["content-type"] //请求头中文件类型
+  const blob = new Blob([res.data])
+  const a = document.createElement("a")
+
+  const randomName = Math.random().toString(36).slice(-6)
+  a.download = randomName + "." + type?.replace("video/", "")
+  a.href = URL.createObjectURL(blob)
+  a.click()
+  URL.revokeObjectURL(a.href)
+  a.remove()
+}
+
+// 下载音频资源
+export const downloadAudioResource = async (url) => {
+  const res: any = await axios.get(url, { responseType: "blob" })
+  const type = res.headers["content-type"] //请求头中文件类型
+  const blob = new Blob([res.data])
+  const a = document.createElement("a")
+
+  const randomName = Math.random().toString(36).slice(-6)
+  a.download = randomName + "." + type?.replace("audio/", "")
+  a.href = URL.createObjectURL(blob)
+  a.click()
+  URL.revokeObjectURL(a.href)
+  a.remove()
+}
