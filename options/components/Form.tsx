@@ -58,10 +58,8 @@ export const BusinessForm = () => {
 
   const initValues: any = {}
   useEffect(() => {
-    console.log(defaultLink)
     if (defaultLink) {
       initValues.link = defaultLink
-      console.log(initValues)
       form.resetFields()
       onFormFinish(initValues)
     }
@@ -94,19 +92,16 @@ export const BusinessForm = () => {
       <Row>
         {videoParams.nwmVideoUrl && (
           <Col span={18}>
-            <Typography.Title level={5}>
-              {videoParams.videoTitle}
-            </Typography.Title>
             <div>
               <Typography.Text type="secondary">
-                作者：
-                <Typography.Text>{videoParams.authorNickname}</Typography.Text>
+                标题：
+                <Typography.Text>{videoParams.videoTitle}</Typography.Text>
               </Typography.Text>
             </div>
             <div>
               <Typography.Text type="secondary">
-                创建日期：
-                <Typography.Text>{videoParams.createTime}</Typography.Text>
+                作者：
+                <Typography.Text>{videoParams.authorNickname}</Typography.Text>
               </Typography.Text>
             </div>
             <div className="my-3">
