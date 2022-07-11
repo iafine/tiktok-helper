@@ -9,7 +9,8 @@ export const parseTikTok = async (url: string) => {
     console.error("错误的TikTok链接")
     return
   }
-  const matchList = url.match(/\d+/g)
+
+  const matchList = url.match(/(?<=video\/)(\d+)?/)
   if (!matchList[0]) {
     console.error("未匹配到视频ID")
     return

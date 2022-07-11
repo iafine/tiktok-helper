@@ -9,6 +9,7 @@
     "build": "plasmo build"
   },
   "dependencies": {
+    "@plasmohq/storage": "^0.7.0",
     "antd": "4.21.3",
     "axios": "^0.27.2",
     "lodash": "^4.17.21",
@@ -33,7 +34,12 @@
       "https://*/*"
     ],
     "permissions": [
-      "tabs"
-    ]
+      "tabs",
+      "activeTab",
+      "scripting"
+    ],
+    "action": {
+      "default_title": "Click to show an alert"
+    }
   }
 }

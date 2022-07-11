@@ -1,5 +1,7 @@
 import { Button, Col, Form, Input, Row, Typography } from "antd"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+
+import { useStorage } from "@plasmohq/storage"
 
 import {
   downloadAudioResource,
@@ -15,8 +17,8 @@ export const BusinessForm = () => {
   const [videoLoading, setVideoLoading] = useState(false)
   const [audioLoading, setAudioLoading] = useState(false)
   const [videoParams, setVideoParams] = useState({}) as any
-
   const [form] = useForm()
+  const [defaultLink] = useStorage("__TIKTOK_URL__")
 
   const onFormFinish = async (data) => {
     setVideoParams({})
@@ -54,9 +56,25 @@ export const BusinessForm = () => {
     }
   }
 
+  const initValues: any = {}
+  useEffect(() => {
+    console.log(defaultLink)
+    if (defaultLink) {
+      initValues.link = defaultLink
+      console.log(initValues)
+      form.resetFields()
+      onFormFinish(initValues)
+    }
+  }, [defaultLink])
+
   return (
     <RoundLayout title="TikTok视频解析">
-      <Form form={form} onFinish={onFormFinish} layout="vertical" size="middle">
+      <Form
+        form={form}
+        onFinish={onFormFinish}
+        layout="vertical"
+        size="middle"
+        initialValues={initValues}>
         <Row>
           <Col span={18}>
             <Form.Item
