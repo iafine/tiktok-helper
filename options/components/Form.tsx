@@ -1,4 +1,4 @@
-import { Button, Col, Form, Input, Row, Typography } from "antd"
+import { Button, Col, Form, Input, Row, Typography, message } from "antd"
 import { useEffect, useState } from "react"
 
 import { useStorage } from "@plasmohq/storage"
@@ -26,10 +26,10 @@ export const BusinessForm = () => {
     const { link = "" } = data
     try {
       const params = await parseTikTok(link)
-      console.log(params)
       setVideoParams(params)
     } catch (error) {
       console.error(error)
+      message.error(chrome.i18n.getMessage("parseErrorTip"))
     }
     setSubmitLoading(false)
   }
@@ -66,7 +66,7 @@ export const BusinessForm = () => {
   }, [defaultLink])
 
   return (
-    <RoundLayout title="TikTok视频解析">
+    <RoundLayout title={chrome.i18n.getMessage("optionsLayoutTitle")}>
       <Form
         form={form}
         onFinish={onFormFinish}
@@ -77,15 +77,25 @@ export const BusinessForm = () => {
           <Col span={18}>
             <Form.Item
               name="link"
-              label="链接"
-              rules={[{ required: true, message: "请输入链接" }]}>
-              <Input placeholder="请输入链接" allowClear />
+              label={chrome.i18n.getMessage("optionsFormLinkLabel")}
+              rules={[
+                {
+                  required: true,
+                  message: chrome.i18n.getMessage("optionsFormLinkRuleMessage")
+                }
+              ]}>
+              <Input
+                placeholder={chrome.i18n.getMessage(
+                  "optionsFormLinkPlaceholder"
+                )}
+                allowClear
+              />
             </Form.Item>
           </Col>
         </Row>
         <Form.Item>
           <Button type="primary" htmlType="submit" loading={submitLoading}>
-            解析视频
+            {chrome.i18n.getMessage("optionsSubmitButton")}
           </Button>
         </Form.Item>
       </Form>
@@ -94,13 +104,13 @@ export const BusinessForm = () => {
           <Col span={18}>
             <div>
               <Typography.Text type="secondary">
-                标题：
+                {chrome.i18n.getMessage("optionsResultTitle")}
                 <Typography.Text>{videoParams.videoTitle}</Typography.Text>
               </Typography.Text>
             </div>
             <div>
               <Typography.Text type="secondary">
-                作者：
+                {chrome.i18n.getMessage("optionsResultAuthor")}
                 <Typography.Text>{videoParams.authorNickname}</Typography.Text>
               </Typography.Text>
             </div>
@@ -114,14 +124,14 @@ export const BusinessForm = () => {
               type="primary"
               onClick={() => downloadResource(videoParams.nwmVideoUrl, "video")}
               loading={videoLoading}>
-              下载视频
+              {chrome.i18n.getMessage("optionsDownloadVideo")}
             </Button>
             <Button
               className="ml-3"
               type="primary"
               onClick={() => downloadResource(videoParams.musicUrl, "audio")}
               loading={audioLoading}>
-              下载音频
+              {chrome.i18n.getMessage("optionsDownloadAudio")}
             </Button>
           </Col>
         )}

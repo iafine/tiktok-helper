@@ -3,9 +3,39 @@
     "message": "TikTok助手"
   },
   "extensionDescription": {
-    "message": "TikTok工具集合"
+    "message": "专门为TikTok用户提供服务，方便您的日常使用。"
   },
-  "actionTitle": {
+  "actionDefaultTitle": {
     "message": "点击进入解析页面"
+  },
+  "optionsLayoutTitle":{
+    "message": "TikTok视频解析"
+  },
+  "optionsFormLinkLabel": {
+    "message": "链接"
+  },
+  "optionsFormLinkPlaceholder": {
+    "message": "请输入TikTok视频链接"
+  },
+  "optionsFormLinkRuleMessage": {
+    "message": "请输入正确的TikTok视频链接"
+  },
+  "optionsSubmitButton": {
+    "message": "解析视频"
+  },
+  "optionsResultTitle": {
+    "message": "标题："
+  },
+  "optionsResultAuthor": {
+    "message": "作者："
+  },
+  "optionsDownloadVideo": {
+    "message": "下载视频"
+  },
+  "optionsDownloadAudio": {
+    "message": "下载音频"
+  },
+  "parseErrorTip": {
+    "message": "解析TikTok链接失败，请检查当前网络情况，或联系我们"
   }
 }

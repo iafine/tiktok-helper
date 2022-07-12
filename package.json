@@ -2,7 +2,7 @@
   "name": "tiktok-helper",
   "displayName": "__MSG_extensionName__",
   "version": "0.0.0",
-  "description": "TikTok下载助手",
+  "description": "__MSG_extensionDescription__",
   "author": "topaz",
   "scripts": {
     "dev": "plasmo dev",
@@ -32,15 +32,17 @@
   "manifest": {
     "default_locale": "en",
     "homepage_url": "https://www.chipfly.co",
-    "host_permissions": [
-      "https://*/*"
-    ],
     "permissions": [
       "tabs",
-      "activeTab"
+      "activeTab",
+      "contextMenus"
+    ],
+    "host_permissions": [
+      "https://www.tiktok.com/*",
+      "https://api.tiktokv.com/*"
     ],
     "action": {
-      "default_title": "__MSG_actionTitle__"
+      "default_title": "__MSG_actionDefaultTitle__"
     }
   }
 }

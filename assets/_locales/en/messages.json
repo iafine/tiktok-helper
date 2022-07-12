@@ -3,9 +3,39 @@
     "message": "TikTok Helper"
   },
   "extensionDescription": {
-    "message": "TikTok工具集合"
+    "message": "Specifically for TikTok users, it is convenient for your daily use."
   },
-  "actionTitle": {
+  "actionDefaultTitle": {
     "message": "Click to enter the parse page"
+  },
+  "optionsLayoutTitle":{
+    "message": "TikTok Video Parse"
+  },
+  "optionsFormLinkLabel": {
+    "message": "Link"
+  },
+  "optionsFormLinkPlaceholder": {
+    "message": "Please enter TikTok video link"
+  },
+  "optionsFormLinkRuleMessage": {
+    "message": "Please enter the correct TikTok video link"
+  },
+  "optionsSubmitButton": {
+    "message": "Parse the video"
+  },
+  "optionsResultTitle": {
+    "message": "Title："
+  },
+  "optionsResultAuthor": {
+    "message": "Author："
+  },
+  "optionsDownloadVideo": {
+    "message": "Download Video"
+  },
+  "optionsDownloadAudio": {
+    "message": "Download Audio"
+  },
+  "parseErrorTip": {
+    "message": "Failed to parse the TikTok link, please check the current network situation, or contact us."
   }
 }

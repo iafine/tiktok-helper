@@ -3,9 +3,39 @@
     "message": "TikTok助手"
   },
   "extensionDescription": {
-    "message": "TikTok工具集合"
+    "message": "專門為TikTok用戶提供服務，方便您的日常使用。"
   },
-  "actionTitle": {
+  "actionDefaultTitle": {
     "message": "點擊進入解析頁面"
+  },
+  "optionsLayoutTitle":{
+    "message": "TikTok視頻解析"
+  },
+  "optionsFormLinkLabel": {
+    "message": "鏈接"
+  },
+  "optionsFormLinkPlaceholder": {
+    "message": "請輸入TikTok視頻鏈接"
+  },
+  "optionsFormLinkRuleMessage": {
+    "message": "請輸入正確的TikTok視頻鏈接"
+  },
+  "optionsSubmitButton": {
+    "message": "解析視頻"
+  },
+  "optionsResultTitle": {
+    "message": "標題："
+  },
+  "optionsResultAuthor": {
+    "message": "作者："
+  },
+  "optionsDownloadVideo": {
+    "message": "下載視頻"
+  },
+  "optionsDownloadAudio": {
+    "message": "下載音頻"
+  },
+  "parseErrorTip": {
+    "message": "解析TikTok鏈接失敗，請檢查當前網絡情況，或聯繫我們"
   }
 }
