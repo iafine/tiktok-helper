@@ -35,7 +35,8 @@
     "permissions": [
       "tabs",
       "activeTab",
-      "contextMenus"
+      "contextMenus",
+      "commands"
     ],
     "host_permissions": [
       "https://www.tiktok.com/*",
@@ -43,6 +44,15 @@
     ],
     "action": {
       "default_title": "__MSG_actionDefaultTitle__"
+    },
+    "commands": {
+      "open_parse_video": {
+        "suggested_key": {
+          "default": "Ctrl+Shift+K",
+          "mac": "Command+Shift+K"
+        },
+        "description": "__MSG_commandsParseVideoDescription__"
+      }
     }
   }
 }

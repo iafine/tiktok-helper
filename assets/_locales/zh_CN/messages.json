@@ -43,5 +43,8 @@
   },
   "contextMenusVideo": {
     "message": "解析当前视频"
+  },
+  "commandsParseVideoDescription": {
+    "message": "打开解析视频页面"
   }
 }

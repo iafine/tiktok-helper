@@ -43,5 +43,8 @@
   },
   "contextMenusVideo": {
     "message": "Parse the current video"
+  },
+  "commandsParseVideoDescription": {
+    "message": "Open the parsing video page"
   }
 }
