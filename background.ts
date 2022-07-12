@@ -20,13 +20,13 @@ chrome.action.onClicked.addListener(async (tab) => {
 // 右键菜单
 chrome.contextMenus.create({
   id: "tiktok_parse_page",
-  title: "解析当前视频页面",
+  title: chrome.i18n.getMessage("contextMenusPage"),
   contexts: ["page"],
   documentUrlPatterns: ["https://www.tiktok.com/@*"]
 })
 chrome.contextMenus.create({
   id: "tiktok_parse_video",
-  title: "解析当前视频",
+  title: chrome.i18n.getMessage("contextMenusVideo"),
   contexts: ["video"],
   documentUrlPatterns: ["https://www.tiktok.com/@*"]
 })

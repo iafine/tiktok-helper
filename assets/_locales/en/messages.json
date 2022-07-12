@@ -37,5 +37,11 @@
   },
   "parseErrorTip": {
     "message": "Failed to parse the TikTok link, please check the current network situation, or contact us."
+  },
+  "contextMenusPage": {
+    "message": "Parse the current video page"
+  },
+  "contextMenusVideo": {
+    "message": "Parse the current video"
   }
 }

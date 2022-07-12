@@ -37,5 +37,11 @@
   },
   "parseErrorTip": {
     "message": "解析TikTok链接失败，请检查当前网络情况，或联系我们"
+  },
+  "contextMenusPage": {
+    "message": "解析当前视频页面"
+  },
+  "contextMenusVideo": {
+    "message": "解析当前视频"
   }
 }
