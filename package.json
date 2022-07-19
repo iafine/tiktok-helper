@@ -34,7 +34,6 @@
     "homepage_url": "https://www.chipfly.co",
     "permissions": [
       "tabs",
-      "activeTab",
       "contextMenus",
       "commands"
     ],
